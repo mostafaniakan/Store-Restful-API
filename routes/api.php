@@ -28,3 +28,5 @@ Route::get('/categories/{category}/products',[\App\Http\Controllers\CategoryCont
 
 Route::apiResource('products',\App\Http\Controllers\ProductController::class);
 
+//pay
+Route::post('/payment/send',[\App\Http\Controllers\PaymentController::class,'send']);
