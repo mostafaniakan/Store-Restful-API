@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,9 +12,9 @@ class PaymentController extends ApiController
 {
     public function send(Request $request)
     {
+        $user_id = auth()->user()->id;
 
         $validation = Validator::make($request->all(), [
-            'user_id' => 'required',
             'order_items' => 'required',
             'order_items.*.product_id' => 'required|integer',
             'order_items.*.quantity' => 'required|integer',
@@ -24,6 +25,7 @@ class PaymentController extends ApiController
         if ($validation->fails()) {
             return $this->errorResponse($validation->messages(), 422);
         }
+
 //        check product quantity
         $totalAmount = 0;
         $deliveryAmount = 0;
@@ -44,13 +46,14 @@ class PaymentController extends ApiController
             'paying_amount' => $payingAmount,
         ];
 
+        $user=User::find($user_id);
 
         $params = array(
             'order_id' => '101',
             'amount' => $payingAmount,
-            'name' => 'قاسم رادمان',
-            'phone' => '09382198592',
-            'mail' => 'my@site.com',
+            'name' => $user->name,
+            'phone' => $user->cellphone,
+            'mail' => $user->email,
             'desc' => 'توضیحات پرداخت کننده',
             'callback' => env('PAY_IR_CALLBACK_URL'),
         );

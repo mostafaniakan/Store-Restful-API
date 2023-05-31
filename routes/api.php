@@ -18,15 +18,29 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::apiResource('brands',\App\Http\Controllers\BrandController::class);
-Route::get('/brands/{brand}/products',[\App\Http\Controllers\BrandController::class,'products']);
-Route::apiResource('categories',\App\Http\Controllers\CategoryController::class);
-Route::get('/categories/{category}/children',[\App\Http\Controllers\CategoryController::class,'children']);
-Route::get('/categories/{category}/parent',[\App\Http\Controllers\CategoryController::class,'parent']);
+//auth
+Route::post('/user',[\App\Http\Controllers\AuthController::class,'createUser']);
+Route::post('/login',[\App\Http\Controllers\AuthController::class,'login']);
+Route::get('/logout',[\App\Http\Controllers\AuthController::class,'logout'])->middleware('auth:sanctum');
+Route::post('/userinfo',[\App\Http\Controllers\AuthController::class,'userInfo'])->middleware('auth:sanctum');
 
-Route::get('/categories/{category}/products',[\App\Http\Controllers\CategoryController::class,'products']);
+//province
+Route::apiResource('province',\App\Http\Controllers\ProvinceController::class);
+Route::get('/provinces/{province}/children',[\App\Http\Controllers\ProvinceController::class,'cities']);
+
+Route::apiResource('city',\App\Http\Controllers\CityController::class);
+
+
+
+Route::apiResource('brands',\App\Http\Controllers\BrandController::class)->middleware('auth:sanctum');
+Route::get('/brands/{brand}/products',[\App\Http\Controllers\BrandController::class,'products'])->middleware('auth:sanctum');
+Route::apiResource('categories',\App\Http\Controllers\CategoryController::class)->middleware('auth:sanctum');
+Route::get('/categories/{category}/children',[\App\Http\Controllers\CategoryController::class,'children'])->middleware('auth:sanctum');
+Route::get('/categories/{category}/parent',[\App\Http\Controllers\CategoryController::class,'parent'])->middleware('auth:sanctum');
+
+Route::get('/categories/{category}/products',[\App\Http\Controllers\CategoryController::class,'products'])->middleware('auth:sanctum');
 
 Route::apiResource('products',\App\Http\Controllers\ProductController::class);
 
 //pay
-Route::post('/payment/send',[\App\Http\Controllers\PaymentController::class,'send']);
+Route::post('/payment/send',[\App\Http\Controllers\PaymentController::class,'send'])->middleware('auth:sanctum');

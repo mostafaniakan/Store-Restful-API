@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 use Error;
 use Exception;
+use Spatie\FlareClient\Http\Exceptions\NotFound;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Throwable;
 use ErrorException;
@@ -91,6 +92,11 @@ class Handler extends ExceptionHandler
         if ($e instanceof QueryException) {
             DB::rollBack();
             return $this->errorResponse($e->getMessage(), 500);
+        }
+
+        if ($e instanceof NotFound) {
+            DB::rollBack();
+            return $this->errorResponse($e->getMessage(), 404);
         }
 
         if (config('app.debug')) {

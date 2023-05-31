@@ -17,10 +17,11 @@ trait ApiResponse
 
     protected function errorResponse($message = null, $code)
     {
+
         return response()->json([
             'code' => $code,
             'status' => 'error',
-            'message', $message,
+            'message'=> $message,
             'data' => null,
         ], $code);
     }

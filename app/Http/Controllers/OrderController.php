@@ -11,64 +11,65 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    public static function create($request,$amounts,$token)
+    public static function create($request, $amounts, $token)
     {
-
+        $user_id = auth()->user()->id;
         DB::beginTransaction();
 
-       $order= Order::create([
-            'user_id'=>$request->user_id,
-            'total_amount'=>$amounts['total_amount'],
-            'delivery_amount'=>$amounts['delivery_amount'],
-            'paying_amount'=>$amounts['paying_amount']
+        $order = Order::create([
+            'user_id' => $user_id,
+            'total_amount' => $amounts['total_amount'],
+            'delivery_amount' => $amounts['delivery_amount'],
+            'paying_amount' => $amounts['paying_amount']
 
         ]);
 
-        foreach ($request->order_items as $order_item){
-            $product=Product::findOrFail($order_item['product_id']);
+        foreach ($request->order_items as $order_item) {
+            $product = Product::findOrFail($order_item['product_id']);
             OrderItem::create([
-                'order_id'=>$order->id,
-                'product_id'=>$product->id,
-                'price'=>$product->price,
-                'quantity'=>$order_item['quantity'],
-                'subtotal'=>$product->price * $order_item['quantity']
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'price' => $product->price,
+                'quantity' => $order_item['quantity'],
+                'subtotal' => $product->price * $order_item['quantity']
             ]);
         }
         Transaction::create([
-            'user_id'=>$request->user_id,
-            'order_id'=>$order->id,
-            'amount'=>$amounts['paying_amount'],
-            'token'=>$token,
-            'request_from'=>$request->request_from,
+            'user_id' => $user_id,
+            'order_id' => $order->id,
+            'amount' => $amounts['paying_amount'],
+            'token' => $token,
+            'request_from' => $request->request_from,
         ]);
         DB::commit();
     }
 
-    public static function update($id,$trackId){
+    public static function update($id, $trackId)
+    {
 
         DB::beginTransaction();
-         $transaction=Transaction::where('token',$id)->firstOrFail();
+        $transaction = Transaction::where('token', $id)->firstOrFail();
 
-         $transaction->update([
-             'status'=>1,
-             'trans_id'=>$trackId,
-         ]);
+        $transaction->update([
+            'status' => 1,
+            'trans_id' => $trackId,
+        ]);
 
-         $order=Order::findOrFail($transaction->order_id);
-         $order->update([
-             'status'=>1,
-             'payment_status'=>1
-         ]);
+        $order = Order::findOrFail($transaction->order_id);
+        $order->update([
+            'status' => 1,
+            'payment_status' => 1
+        ]);
 
-         foreach (OrderItem::where('order_id',$order->id)->get() as $item){
+        foreach (OrderItem::where('order_id', $order->id)->get() as $item) {
 
-             $product=Product::find($item->product_id);
+            $product = Product::find($item->product_id);
 
-             $product->update([
-                'quantity'=> ($product->quantity - $item->quantity)
-             ]);
+            $product->update([
+                'quantity' => ($product->quantity - $item->quantity)
+            ]);
 
-         }
+        }
         DB::commit();
     }
 }

@@ -189,12 +189,12 @@ class ProductController extends ApiController
 
         DB:: beginTransaction();
         $product->delete();
-        $images=$product->load('images');
-      if($images->has('images')){
-          foreach ( $images->images as $image){
-              $image->delete();
-          }
-      }
+        $images = $product->load('images');
+        if ($images->has('images')) {
+            foreach ($images->images as $image) {
+                $image->delete();
+            }
+        }
         DB::commit();
         return $this->successResponse(new ProductResource($product), 200);
 
