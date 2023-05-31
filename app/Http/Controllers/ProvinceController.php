@@ -54,7 +54,7 @@ class ProvinceController extends ApiController
      */
     public function show(Province $province)
     {
-        return $this->successResponse('',$province,200);
+        return $this->successResponse('',new ProvinceResource($province),200);
     }
 
     /**
