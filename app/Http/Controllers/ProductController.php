@@ -98,8 +98,9 @@ class ProductController extends ApiController
      * @param int $id
      * @return JsonResponse
      */
-    public function show(Product $product)
+    public function show($id)
     {
+        $product=Product::find($id);
         return $this->successResponse(new ProductResource($product->load('images')), 200);
     }
 

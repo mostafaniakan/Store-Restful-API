@@ -58,8 +58,9 @@ class CityController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(City $city)
+    public function show(int $id)
     {
+        $city=City::find($id);
         return $this->successResponse('',new CityResource($city),200);
     }
 

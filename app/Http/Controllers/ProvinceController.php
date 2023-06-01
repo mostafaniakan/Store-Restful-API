@@ -52,8 +52,9 @@ class ProvinceController extends ApiController
      * @param  int  $id
      * @return JsonResponse
      */
-    public function show(Province $province)
+    public function show($id)
     {
+        $province=Province::find($id);
         return $this->successResponse('',new ProvinceResource($province),200);
     }
 

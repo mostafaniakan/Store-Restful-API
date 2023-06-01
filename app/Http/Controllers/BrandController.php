@@ -63,8 +63,9 @@ class BrandController extends Controller
      * @param int $id
      * @return JsonResponse
      */
-    public function show(Brand $brand)
+    public function show($id)
     {
+        $brand=Brand::find($id);
         return $this->successResponse('',new BrandResource($brand),200);
     }
 

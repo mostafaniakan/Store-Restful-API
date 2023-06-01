@@ -64,8 +64,9 @@ class CategoryController extends Controller
      * @param Category $category
      * @return JsonResponse
      */
-    public function show(Category $category)
+    public function show($id)
     {
+        $category=Category::find($id);
         return $this->successResponse('', new CategoryResource($category), 200);
     }
 
