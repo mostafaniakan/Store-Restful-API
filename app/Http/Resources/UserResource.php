@@ -18,7 +18,10 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'cellphone' => $this->cellphone,
-            'email' => $this->email
+            'email' => $this->email,
+            'orders' => OrderResource::collection($this->whenLoaded('orders',function (){
+                return $this->orders->load('orders_item');
+    })),
 
         ];
     }

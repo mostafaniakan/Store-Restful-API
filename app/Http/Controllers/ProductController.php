@@ -112,16 +112,15 @@ class ProductController extends ApiController
      */
     public function update(Request $request, Product $product)
     {
-
         $validation = Validator::make($request->all(), [
-            'name' => "required|string",
-            'brand_id' => 'required|integer',
-            'category_id' => 'required|integer',
-            'primary_image' => 'nullable|image',
-            'price' => 'required|integer',
+            'name' => "string",
+            'brand_id' => 'integer',
+            'category_id' => 'integer',
+            'primary_image' => 'image',
+            'price' => 'integer',
             'quantity' => 'integer',
             'delivery_amount' => 'integer|nullable',
-            'description' => 'required',
+            'description' => 'string',
             'images.*' => 'image|nullable'
         ]);
         if ($validation->fails()) {
@@ -149,15 +148,15 @@ class ProductController extends ApiController
 
 
         $product->update([
-            'name' => $request->name,
-            'brand_id' => $request->brand_id,
-            'category_id' => $request->category_id,
+            'name' => $request->has('name') ? $request->name : $product->name,
+            'brand_id' => $request->has('brand_id') ? $request->brand_id : $product->brand_id,
+            'category_id' => $request->has('category_id') ? $request->category_id : $product->category_id,
             'primary_image' => $request->has('primary_image') ? $primaryImageName : $product->primary_image,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'delivery_amount' => $request->delivery_amount,
-            'description' => $request->description,
-            'images.*' => $request->images
+            'price' => $request->has('price') ? $request->price : $product->price,
+            'quantity' => $request->has('quantity') ? $request->quantity : $product->quantity,
+            'delivery_amount' => $request->has('delivery_amount') ? $request->delivery_amount : $product->delivery_amount,
+            'description' => $request->has('description') ? $request->description : $product->description,
+            'images.*' => $request->has('images') ? $request->images : $product->images,
         ]);
 
 //        if has images create image children

@@ -9,7 +9,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class OrderController extends Controller
+class OrderController extends ApiController
 {
     public static function create($request, $amounts, $token)
     {
@@ -71,5 +71,8 @@ class OrderController extends Controller
 
         }
         DB::commit();
+    }
+    public function orderItem(Order $order){
+        return $this->successResponse($order->load('orders_item'));
     }
 }

@@ -27,4 +27,5 @@ class ProductResource extends JsonResource
              'images'=>ProductImagesResource::collection($this->whenLoaded('images')),
         ];
     }
+
 }
