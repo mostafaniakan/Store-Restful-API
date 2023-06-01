@@ -1,0 +1,1653 @@
+{
+	"info": {
+		"_postman_id": "964acd25-949b-4644-8d6a-0954a2d8bd74",
+		"name": "store Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26928939"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "cellphone",
+									"value": "09035441578",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mostafaniakan96@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "email_verified_at",
+									"value": "mostafaniakan96@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/user",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "capacitor",
+									"type": "text"
+								},
+								{
+									"key": "cellphone",
+									"value": "09035441572",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mostafaniakan96@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/user/login",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5|65ZJClIgVO7djyBthkPl7TJrfrhyCZbnfieEwyuL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/users",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/user/index/10",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"user",
+								"index",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/user/10/orders",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"user",
+								"10",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show user Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|JIvssfXTYpiOOl4yCN7YKbFkSzy57w5Ga2pH0OHG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/user/update/10",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"user",
+								"update",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopUrl}}/user/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "province",
+			"item": [
+				{
+					"name": "create province",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomCity}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list Provinces",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show province",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show childrens province",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopUrl}}/provinces/1/children",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"provinces",
+								"1",
+								"children"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show province Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "city",
+			"item": [
+				{
+					"name": "create city",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomCity}}",
+									"type": "text"
+								},
+								{
+									"key": "province_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/city",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list citeis",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show city",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/city/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"city",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show province Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/province/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"province",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "Create Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|JIvssfXTYpiOOl4yCN7YKbFkSzy57w5Ga2pH0OHG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brand",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of Brand",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|JIvssfXTYpiOOl4yCN7YKbFkSzy57w5Ga2pH0OHG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brand",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show Brand",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|JIvssfXTYpiOOl4yCN7YKbFkSzy57w5Ga2pH0OHG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brand/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brand",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products of Brand",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brands",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Brand",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brand/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brand",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Brand",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brands/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brands",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|JIvssfXTYpiOOl4yCN7YKbFkSzy57w5Ga2pH0OHG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "parent_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/category",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of Categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brands",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|JIvssfXTYpiOOl4yCN7YKbFkSzy57w5Ga2pH0OHG",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopUrl}}/category/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get children category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopUrl}}/categories/1/children",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"categories",
+								"1",
+								"children"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get parent children",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopUrl}}/categories/1/children",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"categories",
+								"1",
+								"children"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "products of category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{shopUrl}}/categories/3/products",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"categories",
+								"3",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Category",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "parent_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/category/2",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/category/2",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "brand_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200000000",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "delivery_amount",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremText}}",
+									"type": "text"
+								},
+								{
+									"key": "primary_image",
+									"type": "file",
+									"src": "/C:/Users/mostafa/Desktop/3819503.jpg"
+								},
+								{
+									"key": "images[0]",
+									"type": "file",
+									"src": "/C:/Users/mostafa/Desktop/lotus1.webp"
+								},
+								{
+									"key": "images[1]",
+									"type": "file",
+									"src": "/C:/Users/mostafa/Desktop/user2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/products",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/products",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brands",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text"
+								},
+								{
+									"key": "brand_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "200000000",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "quantity",
+									"value": "9",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "delivery_amount",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremText}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "primary_image",
+									"type": "file",
+									"src": "/C:/Users/mostafa/Desktop/3819503.jpg",
+									"disabled": true
+								},
+								{
+									"key": "images[0]",
+									"type": "file",
+									"src": "/C:/Users/mostafa/Desktop/pngwing.com.png",
+									"disabled": true
+								},
+								{
+									"key": "images[1]",
+									"type": "file",
+									"src": "/C:/Users/mostafa/Desktop/user2.png",
+									"disabled": true
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/products/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "display_name",
+									"value": "{{$randomNoun}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{shopUrl}}/brands/1",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"brands",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "products of category Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|ZvMLFpiFOgAD2xLNHUWNdOx9bAq6l2zbEmq4C9Nh",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-SANDBOX",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\" :4,\r\n    \"order_items\" :[\r\n        {\r\n            \"product_id\":2,\r\n            \"quantity\":1\r\n        },\r\n        {\r\n            \"product_id\":3,\r\n            \"quantity\":1\r\n        }\r\n    ],\r\n    \"request_from\" : \"web\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{shopUrl}}/payment/send",
+							"host": [
+								"{{shopUrl}}"
+							],
+							"path": [
+								"payment",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "shopApi",
+			"value": "http://localhost:8000/api/"
+		},
+		{
+			"key": "shopUrl",
+			"value": "http://localhost:8000/api"
+		}
+	]
+}
