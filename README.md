@@ -5,7 +5,7 @@ Javascript, HTML, CSS...
 
 # Shop Rest API
 
-The store api is built with Laravel language 
+The Store api is built with Laravel language 
 
 
 
