@@ -75,7 +75,7 @@ paths:
               examples:
                 Example 1:
                   value:
-                    message: string
+                    message: منتبشمنستبمش
           headers: {}
   /user/login:
     post:
