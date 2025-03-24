@@ -1,0 +1,770 @@
+openapi: 3.0.0
+info:
+  title: store Api
+  version: 1.0.0
+servers:
+  - url: 'http://{{shopurl}}'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
+tags:
+  - name: User
+  - name: province
+  - name: city
+  - name: Brand
+  - name: category
+  - name: Product
+  - name: Order
+paths:
+  /user:
+    post:
+      tags:
+        - User
+      summary: create user
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+                cellphone:
+                  type: integer
+                  example: '09035441578'
+                email:
+                  type: string
+                  example: mostafaniakan96@gmail.com
+                email_verified_at:
+                  type: string
+                  example: mostafaniakan96@gmail.com
+                password:
+                  type: integer
+                  example: '12345678'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - name
+                properties:
+                  name:
+                    type: string
+                    x-stoplight:
+                      id: jol57pxp7j3ju
+                    description: required
+              examples:
+                Example 1:
+                  value:
+                    '': string
+          headers: {}
+  /user/login:
+    post:
+      tags:
+        - User
+      summary: login
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: capacitor
+                cellphone:
+                  type: integer
+                  example: '09035441572'
+                email:
+                  type: string
+                  example: mostafaniakan96@gmail.com
+                password:
+                  type: integer
+                  example: '12345678'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users:
+    get:
+      tags:
+        - User
+      summary: show all users
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/index/10:
+    get:
+      tags:
+        - User
+      summary: show user
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/10/orders:
+    get:
+      tags:
+        - User
+      summary: orders user
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/update/10:
+    put:
+      tags:
+        - User
+      summary: show user Copy
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /user/1:
+    delete:
+      tags:
+        - User
+      summary: delete Product
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /province:
+    post:
+      tags:
+        - province
+      summary: create province
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomCity}}'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - city
+      summary: list citeis
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /province/1:
+    get:
+      tags:
+        - province
+      summary: show province
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - city
+      summary: show province Copy
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - city
+      summary: delete Product
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /provinces/1/children:
+    get:
+      tags:
+        - province
+      summary: show childrens province
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /city:
+    post:
+      tags:
+        - city
+      summary: create city
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomCity}}'
+                province_id:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /city/1:
+    get:
+      tags:
+        - city
+      summary: show city
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /brand:
+    post:
+      tags:
+        - Brand
+      summary: Create Brand
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+                display_name:
+                  type: string
+                  example: '{{$randomNoun}}'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Brand
+      summary: list of Brand
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /brand/1:
+    get:
+      tags:
+        - Brand
+      summary: show Brand
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Brand
+      summary: update Brand
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+                display_name:
+                  type: string
+                  example: '{{$randomNoun}}'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /brands:
+    get:
+      tags:
+        - Product
+      summary: get  Product
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /brands/1:
+    delete:
+      tags:
+        - Product
+      summary: delete Product
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /category:
+    post:
+      tags:
+        - category
+      summary: Create Category
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+                parent_id:
+                  type: integer
+                  example: '4'
+                description:
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /category/1:
+    get:
+      tags:
+        - category
+      summary: get  category
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /categories/1/children:
+    get:
+      tags:
+        - category
+      summary: get parent children
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /categories/3/products:
+    get:
+      tags:
+        - category
+      summary: products of category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /category/2:
+    put:
+      tags:
+        - category
+      summary: update Category
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+                parent_id:
+                  type: integer
+                  example: '1'
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - category
+      summary: delete category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /products:
+    post:
+      tags:
+        - Product
+      summary: Create Product
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+                brand_id:
+                  type: integer
+                  example: '1'
+                category_id:
+                  type: integer
+                  example: '1'
+                price:
+                  type: integer
+                  example: '200000000'
+                quantity:
+                  type: integer
+                  example: '7'
+                delivery_amount:
+                  type: integer
+                  example: '0'
+                description:
+                  type: string
+                  example: '{{$randomLoremText}}'
+                primary_image:
+                  type: string
+                  format: binary
+                'images[0]':
+                  type: string
+                  format: binary
+                'images[1]':
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Product
+      summary: list of Product
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /products/1:
+    post:
+      tags:
+        - Product
+      summary: update product
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: '{{$randomNoun}}'
+                brand_id:
+                  type: integer
+                  example: '1'
+                category_id:
+                  type: integer
+                  example: '1'
+                price:
+                  type: integer
+                  example: '200000000'
+                quantity:
+                  type: integer
+                  example: '9'
+                delivery_amount:
+                  type: integer
+                  example: '0'
+                description:
+                  type: string
+                  example: '{{$randomLoremText}}'
+                primary_image:
+                  type: string
+                  format: binary
+                'images[0]':
+                  type: string
+                  format: binary
+                'images[1]':
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /payment/send:
+    post:
+      tags:
+        - Order
+      summary: products of category Copy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: 4
+                order_items:
+                  - product_id: 2
+                    quantity: 1
+                  - product_id: 3
+                    quantity: 1
+                request_from: web
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: X-SANDBOX
+          in: header
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
